@@ -1,6 +1,7 @@
 body {
     background: linear-gradient(90deg, #000000, #292929);
 }
+
 * {
     color: white;
     font-family: "Poppins", sans-serif;
@@ -11,8 +12,9 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
+
 .centrado {
     text-align: center;
 }
@@ -23,19 +25,21 @@ body {
 }
 
 .estudios {
-    display: flex;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-column-gap: 50px;
 }
+
 .colegios {
     display: flex;
     flex-direction: column;
 }
+
 .colegios img {
     width: 400px;
     height: 300px;
 }
+
 .elementos {
     font-size: 30px;
     row-gap: 100px;
@@ -44,44 +48,30 @@ body {
 
 .elementos {
     display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
+    flex-direction: column;
+    align-items: flex-start;
     width: auto;
-    margin-left: 20px; 
+    margin-left: 20px;
 }
 
 /* Añadido: Espaciado entre elementos de la lista */
 .listarelementos li {
-    margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+    margin-bottom: 30%;
 }
 
 /* Añadido: Espaciado dentro del div elementos */
-.elementos {
-    margin-bottom: 50px; /* Ajusta el valor según sea necesario */
-}
-
 .proyectos {
-    margin-top: 100px;
+    margin-top: 20px;
     font-size: 25px;
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-}
-
-.proyectos {
-    font-size: 25px;
-    display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    margin-top: 50px; /* Aumenta el espacio entre el título y los divs */
+    justify-content: space-evenly; /* Centra los elementos horizontalmente */
 }
 
 .cont {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row; /* Alinea los elementos en una fila */
+    justify-content: space-evenly; /* Centra los elementos horizontalmente */
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .Habilidades {
@@ -92,26 +82,32 @@ body {
     align-items: center;
     justify-content: center;
     width: 300px; /* Aumenta el ancho del cuadro */
-    height: 280px; /* Aumenta el alto del cuadro */
-    margin: 0 200px; 
-    font-size: 30px; 
+    height: 300px; /* Aumenta el alto del cuadro */
+    margin: 10px;
+    font-size: 30px;
     border: 5px solid black;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .proyecto {
     color: black;
     background-color: white;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 300px; /* Aumenta el ancho del cuadro */
-    height: 280px; /* Aumenta el alto del cuadro */
-    margin: 0 200px; 
-    font-size: 30px; 
+    height: 300px; /* Aumenta el alto del cuadro */
+    font-size: 30px;
     border: 5px solid black;
-    border-radius: 10px; 
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.subcont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
 }
 
 .proyectos p {
@@ -119,15 +115,18 @@ body {
     font-size: 20px; /* Tamaño de fuente */
     margin-top: 10px; /* Espacio entre el div y el texto */
 }
+
 #imagenPR1 {
     background-image: url(IMG/romagnolilibertadores.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 #imagenPR1 image {
     width: 100px;
     height: 100px;
 }
+
 .habilidades {
     color: black;
     background-color: white;
@@ -137,10 +136,10 @@ body {
     justify-content: center;
     width: 150px; /* Aumenta el ancho del cuadro */
     height: 280px; /* Aumenta el alto del cuadro */
-    margin: 0 200px; 
-    font-size: 30px; 
+    margin: 0 200px;
+    font-size: 30px;
     border: 5px solid black;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 #sobrehab {
@@ -149,4 +148,26 @@ body {
     justify-content: center; /* Centra los elementos horizontalmente */
     align-items: center; /* Centra los elementos verticalmente */
     margin-top: 50px; /* Aumenta el espacio entre el título y los divs */
+}
+
+.conthab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: 1000px;
+    gap: 20px;
+}
+
+.conthab div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.conthab p {
+    margin-top: 10px;
+    font-size: 18px;
 }
