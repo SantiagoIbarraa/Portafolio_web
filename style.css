@@ -9,6 +9,7 @@ body{
 }
 * {
     font-family: "Poppins", sans-serif;
+    margin-top: 30px;
 }
 .yo {
     color: #f1d03f;
@@ -74,6 +75,7 @@ header p {
 
 
 button {
+    display: flex;
     padding: 15px 25px;
     border: unset;
     border-radius: 15px;
@@ -87,6 +89,8 @@ button {
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
+    width: 200px;
+
    }
    
    button::before {
@@ -110,4 +114,10 @@ button {
    
    button:hover::before {
     width: 100%;
+   }
+   #boton {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
    }

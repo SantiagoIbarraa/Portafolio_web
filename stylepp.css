@@ -124,9 +124,16 @@ body {
     background-size: cover;
 }
 
-#imagenPR1 image {
-    width: 100px;
-    height: 100px;
+
+#imagenPR2{
+    background-image: url(IMG/logoagenciaviajes.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#imagenPR3{
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #sobrehab {
