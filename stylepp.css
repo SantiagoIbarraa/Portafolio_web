@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(90deg, #000000, #292929);
+    background: linear-gradient(90deg, #000000, #171717);
 }
 
 * {
@@ -167,6 +167,7 @@ body {
 }
 .titulos {
     font-size: 70px;
+    color: #028f76;
 }
 
 /* Background images for skills */

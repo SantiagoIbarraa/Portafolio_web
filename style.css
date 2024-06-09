@@ -1,11 +1,10 @@
-.titulo{
-    color:#f1d03f;
+.titulo {
+    color: #f1d03f;
     font-size: 50px;
     text-align: center;
 }
-body{
+body {
     background-color: rgb(19, 17, 17);
-
 }
 * {
     font-family: "Poppins", sans-serif;
@@ -13,27 +12,22 @@ body{
 }
 .yo {
     color: #f1d03f;
-
 }
-#fotoperfil{
+#fotoperfil {
     width: 250px;
 }
-
-
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     background: linear-gradient(90deg, #000000, #292929);
-
 }
-#textsobremi{
+#textsobremi {
     color: #ffffff;
     font-size: 35px;
 }
-
 header {
     color: white;
     display: flex;
@@ -41,22 +35,18 @@ header {
     align-items: center;
     border: 2px solid white;
     background: linear-gradient(26deg, #020510, #292929);
-    padding: 20px; 
+    padding: 20px;
     font-size: 20px;
 }
-
 header p {
-    margin: 0; 
+    margin: 0;
 }
-
 #pp {
     margin-right: auto;
 }
-
 .righttop {
-    margin-left: auto; 
+    margin-left: auto;
 }
-
 .content {
     display: flex;
     flex-direction: row;
@@ -64,16 +54,10 @@ header p {
     gap: 15px;
     margin-top: 15px;
 }
-
-#carrera{
-    color:rgb(18, 106, 169); 
+#carrera {
+    color: rgb(18, 106, 169);
     font-size: 25px;
 }
-
-
-
-
-
 button {
     display: flex;
     padding: 15px 25px;
@@ -89,11 +73,12 @@ button {
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
-    width: 200px;
-
-   }
-   
-   button::before {
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -105,19 +90,52 @@ button {
     z-index: -1;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms
-   }
-   
-   button:hover {
+    transition: all 250ms;
+}
+button:hover {
     color: #e8e8e8;
-   }
-   
-   button:hover::before {
+}
+button:hover::before {
     width: 100%;
-   }
-   #boton {
+}
+#boton {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
-   }
+}
+.nav-button {
+    background-color: #000000; /* Different background color */
+    color: #ffffff; /* Text color */
+}
+.nav-button:hover {
+    background-color: #000000; /* Hover state color */
+}
+#bottone1 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    height: 60px;
+    background: #d5f365;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+#bottone1:hover {
+    box-shadow: 7px 5px 56px -14px #C3D900;
+}
+#bottone1:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #C3D900;
+}
+#boton2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
