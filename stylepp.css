@@ -1,10 +1,21 @@
 body {
     background: linear-gradient(90deg, #000000, #171717);
 }
-
 * {
     color: white;
     font-family: "Poppins", sans-serif;
+    opacity: 1;
+    opacity: 1; transform: translateY(0px); animation: 0.5s ease 0s 1 normal forwards running fadeIn;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 body {
@@ -18,6 +29,8 @@ body {
 .centrado {
     text-align: center;
 }
+
+
 
 #titestudios {
     text-align: center;
@@ -38,6 +51,7 @@ body {
 .colegios img {
     width: 400px;
     height: 300px;
+    margin-top: 5px;
 }
 
 .elementos {
@@ -61,6 +75,7 @@ body {
 
 /* Añadido: Espaciado dentro del div elementos */
 .proyectos {
+    opacity: 1; transform: translateY(0px); animation: 0.5s ease 0s 1 normal forwards running fadeIn;
     margin-top: 20px;
     font-size: 25px;
     display: flex;
@@ -97,8 +112,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px; /* Aumenta el ancho del cuadro */
-    height: 300px; /* Aumenta el alto del cuadro */
+    width: 250px; /* Aumenta el ancho del cuadro */
+    height: 250px; /* Aumenta el alto del cuadro */
     font-size: 30px;
     border: 5px solid black;
     border-radius: 10px;
@@ -166,8 +181,8 @@ body {
     font-size: 18px;
 }
 .titulos {
-    font-size: 70px;
-    color: #028f76;
+    font-size: 80px;
+    color: #f1d03f;
 }
 
 /* Background images for skills */
@@ -198,4 +213,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 
+}
+.sobremi{
+    font-size: 20px;
 }
