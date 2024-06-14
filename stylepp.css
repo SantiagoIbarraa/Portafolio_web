@@ -68,23 +68,22 @@ body {
     margin-left: 20px;
 }
 
-/* Añadido: Espaciado entre elementos de la lista */
 .listarelementos li {
     margin-bottom: 30%;
 }
 
-/* Añadido: Espaciado dentro del div elementos */
+
 .proyectos {
     opacity: 1; transform: translateY(0px); animation: 0.5s ease 0s 1 normal forwards running fadeIn;
     margin-top: 20px;
     font-size: 25px;
     display: flex;
-    justify-content: space-evenly; /* Centra los elementos horizontalmente */
+    justify-content: space-evenly; 
 }
 
 .cont {
     display: flex;
-    justify-content: space-evenly; /* Centra los elementos horizontalmente */
+    justify-content: space-evenly; 
     flex-wrap: wrap;
     width: 100%;
 }
@@ -96,8 +95,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px; /* Ajustado el ancho del cuadro */
-    height: 200px; /* Ajustado el alto del cuadro */
+    width: 200px; 
+    height: 200px; 
     margin: 10px;
     font-size: 30px;
     border: 5px solid black;
@@ -112,8 +111,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 250px; /* Aumenta el ancho del cuadro */
-    height: 250px; /* Aumenta el alto del cuadro */
+    width: 250px; 
+    height: 250px; 
     font-size: 30px;
     border: 5px solid black;
     border-radius: 10px;
@@ -128,9 +127,9 @@ body {
 }
 
 .proyectos p {
-    text-align: center; /* Centra el texto */
-    font-size: 20px; /* Tamaño de fuente */
-    margin-top: 10px; /* Espacio entre el div y el texto */
+    text-align: center; 
+    font-size: 20px; 
+    margin-top: 10px;
 }
 
 #imagenPR1 {
@@ -154,9 +153,9 @@ body {
 #sobrehab {
     font-size: 25px;
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    margin-top: 50px; /* Aumenta el espacio entre el título y los divs */
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 50px; 
 }
 
 .conthab {
@@ -185,7 +184,7 @@ body {
     color: #f1d03f;
 }
 
-/* Background images for skills */
+
 #habhtml {
     background-image: url(IMG/HTML.png);
 }
@@ -197,19 +196,19 @@ body {
 }
 
 #habbd {
-    background-image: url(IMG/mysql.png); /* Assuming an image for database */
+    background-image: url(IMG/mysql.png); 
 }
 
 #habphp {
-    background-image: url(IMG/PHP.png); /* Assuming an image for PHP */
+    background-image: url(IMG/PHP.png); 
 }
 
 #habpython {
-    background-image: url(IMG/python.png); /* Assuming an image for Python */
+    background-image: url(IMG/python.png);
 }
 
 #habcpp {
-    background-image: url(IMG/CPP.png); /* Assuming an image for C++ */
+    background-image: url(IMG/CPP.png); 
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -219,3 +218,61 @@ body {
     text-align: center;
     margin: 0px 20px;
 }
+
+.button-icon {
+    display: flex;
+    border: 3px #fff solid;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+  }
+  
+  .icon {
+    background-color: #fff;
+    padding: 10px 10px 5px 10px;
+  }
+  
+  .icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .cube {
+    transition: all 0.4s;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 20px;
+  }
+  
+  .button-icon:hover {
+    border-color: #ff98a2;
+  }
+  
+  .button-icon:hover .cube {
+    transform: rotateX(90deg);
+  }
+  
+  .side {
+    position: absolute;
+    height: 47px;
+    width: 200px;
+    display: flex;
+    font-size: 0.8em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+  }
+  
+  .top {
+    background: #ff98a2;
+    color: #fff;
+    transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+  }
+  
+  .front {
+    background: #222229;
+    color: #fff;
+    transform: translate3d(0, 0, 1em);
+  }
