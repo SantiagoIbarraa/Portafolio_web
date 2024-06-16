@@ -5,34 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Web</title>
     <link rel="stylesheet" href="stylepp.css">
-    <header>
-        <div class="containheader">
-            <div class="headleft"></div>
-            <div class="headrig"></div>
-        </div>
-    </header>
+    <script src="script.js"></script>
+
 </head>
 <body>
+    <div class="customCheckBoxHolder">
+        <input type="checkbox" id="cCB1" class="customCheckBoxInput">
+        <label for="cCB1" class="customCheckBoxWrapper">
+            <div class="customCheckBox">
+                <div class="inner">
+                    Volver
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <header>
+        <div class="containheaderleft containheader">
+            <div class="holdheaderleft holdheader"><a href="">Sobre Mí</a></div>
+        </div>
+        <div class="containheaderrig containheader">
+            <div class="holdheaderrig holdheader">Contactos</div>
+            <div class="holdheaderrig holdheader">Whatsapp</div>
+            <div class="holdheaderrig holdheader">Github</div>
+            <div class="holdheaderrig holdheader">Correo</div>
+        </div>
+    </header>
+
     <h1 id="titestudios" class="titulos">Estudios</h1>
     
     <section class="estudios">
         <div class="elementos">
             <ul class="listarelementos">
-                <li><h3>Escuela N°19 "Remedios de Escaladas" de munro</h3></li>
+                <div class="itemestudio">
+                    <li><h3>Escuela N°19 "Remedios de Escaladas" de munro</h3></li>
+                </div>
+                <div class="itemestudio">
                 <li><h3>Escuela Educación Secundaria técnica 1 de vicente lópez</h3></li>
+            </div>
             </ul>
         </div>
         <div class="colegios">
-            <img src="IMG/ColegioPrimaria.jpg" alt="cuadro1">
-            <img src="IMG/EEST1VL.jpg" alt="cuadro2">
+            <div class="image-container">
+                <img src="IMG/Escuela_Munro_19.png" alt="cuadro1">
+            </div>
+            <div class="image-container">
+                <img src="IMG/Escuela_T1.png" alt="cuadro2">
+            </div>
         </div>
     </section>
+
     <h1 class="centrado titulos">Sobre Mí</h1>
-    <section class="sobremi" >
+    <section class="sobremi">
         <h1>Me desenvuelvo en distintos ambientes laborales y soy bueno trabajando individualmente,
             aunque en grupo obtengo dificultades al respecto. Soy alguien imperativo, trato de que
             mis ideas siempre sean las que quede dentro del proyecto y tengo liderazgo.</h1>
     </section>
+
     <h1 class="centrado titulos" id="titestudios">Proyectos</h1>
     <div class="proyectos">
         <section class="cont">
@@ -53,45 +82,52 @@
                       <span class="side top">check it on github</span>
                     </div>
                   </div>
-                  
-                              </div>
+            </div>
             <div class="subcont">
                 <div class="proyecto" id="imagenPR2"></div>
                 <p>Página de agencia de viajes</p>
                 <p><a href="https://drive.google.com/file/d/1T6wwbSlNOg68ENie64y8FKvIlHBwfwGT/view?usp=drive_link">Descargalo ahí</a></p>
             </div>
-            <div class="subcont">
-                <div class="proyecto" id="imagenPR3">No Proyects</div>
-                <p>work in progress</p>
-            </div>
+
         </section>
     </div>
 
-    <h1 class="centrado titulos" >Habilidades</h1>
+    <h1 class="centrado titulos">Habilidades</h1>
     <section class="conthab">
         <div>
             <div class="Habilidades" id="habhtml"></div>
-            <h1>HTML: 80%</h1>
+            <h1>HTML: Conocimiento y dominio del html, entendimiento de las etiquetas semánticas, de los atributos y etiquetas
+                y el uso de clases y id
+            </h1>
         </div>
         <div>
             <div class="Habilidades" id="habcss"></div>
-            <h1>CSS: 40%</h1>
+            <h1>CSS: Dominio de flex y grid, de media querys, de diseño y decoración</h1>
         </div>
         <div>
             <div class="Habilidades" id="habbd"></div>
-            <h1>BASE DE DATOS: 60%</h1>
+            <h1>BASE DE DATOS: entendimiento de XAMPP, dominio de phpmyadmin, de FKs Y PKs. No estoy familiarizado con el lenguaje SQL, pero 
+                sé crear y manejar bases de datos
+            </h1>
         </div>
-        <div>
-            <div class="Habilidades" id="habphp"></div>
-            <h1>PHP: 20%</h1>
-        </div>
+
         <div>
             <div class="Habilidades" id="habpython"></div>
-            <h1>PYTHON: 40%</h1>
+            <h1>PYTHON: 50%: Sé usar Python, entiendo POO y sé crear interfaces con la librería Tkinter. en sí conozco lo principal y esencial de Python, pero manejo una buena lógica a la hora
+                de programar. 
+            </h1>
         </div>
         <div>
             <div class="Habilidades" id="habcpp"></div>
-            <h1>C++: 40%</h1>
+            <h1>C++: 40%: Programé durante un tiempo en C++ y conozco el lenguaje junto a sus etiquetas principales, no tengo dominio 
+                de los punteros, pero realicé programas básicos en mi época
+            </h1>
+        </div>
+        <div>
+            <div class="Habilidades" id="haboff" ></div>
+                <h1>Office 60%: Tengo manejo de la Office de google y de microsoft, documentos en google, Excel, Editor de imágenes
+                    y videos. También sé gestionar el google drive
+                </h1>
         </div>
     </section>
 </body>

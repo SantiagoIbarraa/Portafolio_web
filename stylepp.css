@@ -1,12 +1,97 @@
 body {
     background: linear-gradient(90deg, #000000, #171717);
+    padding-top: 60px; /* Ajuste para hacer espacio para el header fijo */
 }
+
 * {
     color: white;
     font-family: "Poppins", sans-serif;
     opacity: 1;
-    opacity: 1; transform: translateY(0px); animation: 0.5s ease 0s 1 normal forwards running fadeIn;
 }
+
+.customCheckBoxHolder {
+    margin: 5px;
+    display: flex;
+  }
+  
+  .customCheckBox {
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+    background-color: rgb(36, 59, 159);
+    border-radius: 0px;
+    color: rgba(255, 255, 255, 0.7);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: color, background-color, box-shadow;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    box-shadow: rgba(22, 44, 155, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+    outline: none;
+    justify-content: center;
+    min-width: 55px;
+  }
+  
+  .customCheckBox:hover {
+    background-color: #2d4581;
+    color: rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBox .inner {
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: transform;
+    transform: translateY(0px);
+  }
+  
+  .customCheckBox:hover .inner {
+    transform: translateY(-2px);
+  }
+  
+  /* Multiple Checkboxes can be chained together for a radio input */
+  .customCheckBoxWrapper:first-of-type .customCheckBox {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 0px;
+  }
+  
+  .customCheckBoxWrapper:last-of-type .customCheckBox {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 0px;
+  }
+  
+  .customCheckBoxInput {
+    display: none;
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+    background-color: #2d6737;
+    color: white;
+    box-shadow: rgba(193, 79, 79, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+    transform: translateY(-2px);
+  }
+  
+  .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox:hover {
+    background-color: #34723f;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+  }
+  
+  .customCheckBoxWrapper .customCheckBox:hover .inner {
+    transform: translateY(-2px);
+  }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -18,19 +103,89 @@ body {
     }
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header {
+    border: 5px solid white;
+    height: 60px;
+    color: white;
     display: flex;
-    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    background-color: #000000;
+    justify-content: space-between;
+    z-index: 1000; /* Para asegurarse de que el header esté por encima del contenido */
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+header.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* El resto del CSS sigue igual */
+
+.containheaderleft, .containheaderrig {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    height: 60px;
+}
+
+.holdheaderrig, .holdheaderleft {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(255, 255, 255);
+    flex: 1;
+    text-align: center;
+}
+
+.holdheader {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.holdheader::before {
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(30, 107, 166);
+    transition: bottom 0.3s ease;
+    z-index: -1;
+}
+
+.holdheader:hover::before {
+    bottom: 0;
+}
+
+.holdheader:hover {
+    color: black;
 }
 
 .centrado {
     text-align: center;
 }
-
-
 
 #titestudios {
     text-align: center;
@@ -41,6 +196,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 50px;
+    padding: 20px;
 }
 
 .colegios {
@@ -49,41 +205,40 @@ body {
 }
 
 .colegios img {
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: auto;
     margin-top: 5px;
+    border: 5px solid white;
+    border-radius: 10%;
+    box-sizing: border-box;
+    margin-right: 5px;
 }
 
 .elementos {
     font-size: 30px;
-    row-gap: 100px;
-    flex-direction: row;
-}
-
-.elementos {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: auto;
     margin-left: 20px;
 }
 
-.listarelementos li {
-    margin-bottom: 30%;
+.listarelementos {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 80vh;
 }
 
-
 .proyectos {
-    opacity: 1; transform: translateY(0px); animation: 0.5s ease 0s 1 normal forwards running fadeIn;
+    opacity: 1;
+    transform: translateY(0px);
+    animation: 0.5s ease 0s 1 normal forwards running fadeIn;
     margin-top: 20px;
     font-size: 25px;
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
 }
 
 .cont {
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -95,12 +250,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px; 
-    height: 200px; 
+    width: 200px;
+    height: 200px;
     margin: 10px;
     font-size: 30px;
     border: 5px solid black;
-    border-radius: 10px;
+    border-radius: 50%;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -111,60 +266,55 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 250px; 
-    height: 250px; 
+    width: 250px;
+    height: 250px;
     font-size: 30px;
     border: 5px solid black;
-    border-radius: 10px;
+    border-radius: 50%;
     margin-bottom: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .subcont {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 20px;
 }
 
 .proyectos p {
-    text-align: center; 
-    font-size: 20px; 
+    text-align: center;
+    font-size: 20px;
     margin-top: 10px;
 }
 
 #imagenPR1 {
     background-image: url(IMG/romagnolilibertadores.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-
-#imagenPR2{
+#imagenPR2 {
     background-image: url(IMG/logoagenciaviajes.png);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
-#imagenPR3{
-    background-repeat: no-repeat;
-    background-size: cover;
+#imagenPR3 {
+    background-color: white;
 }
 
 #sobrehab {
     font-size: 25px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin-top: 50px; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
 .conthab {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0 auto;
-    max-width: 800px;
-    gap: 20px;
+    max-width: 560px;
+    gap: 100px;
 }
 
 .conthab div {
@@ -179,11 +329,11 @@ body {
     margin-top: 10px;
     font-size: 18px;
 }
+
 .titulos {
-    font-size: 80px;
+    font-size: 60px;
     color: #f1d03f;
 }
-
 
 #habhtml {
     background-image: url(IMG/HTML.png);
@@ -191,16 +341,14 @@ body {
 
 #habcss {
     background-image: url(IMG/CSS.png);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 #habbd {
-    background-image: url(IMG/mysql.png); 
+    background-image: url(IMG/mysql.png);
 }
 
 #habphp {
-    background-image: url(IMG/PHP.png); 
+    background-image: url(IMG/PHP.png);
 }
 
 #habpython {
@@ -208,12 +356,13 @@ body {
 }
 
 #habcpp {
-    background-image: url(IMG/CPP.png); 
-    background-size: cover;
-    background-repeat: no-repeat;
-
+    background-image: url(IMG/CPP.png);
 }
-.sobremi{
+#haboff{
+    background-image: url(IMG/office.png);
+}
+
+.sobremi {
     font-size: 20px;
     text-align: center;
     margin: 0px 20px;
@@ -225,34 +374,34 @@ body {
     width: fit-content;
     height: fit-content;
     cursor: pointer;
-  }
-  
-  .icon {
+}
+
+.icon {
     background-color: #fff;
     padding: 10px 10px 5px 10px;
-  }
-  
-  .icon svg {
+}
+
+.icon svg {
     width: 25px;
     height: 25px;
-  }
-  
-  .cube {
+}
+
+.cube {
     transition: all 0.4s;
     transform-style: preserve-3d;
     width: 200px;
     height: 20px;
-  }
-  
-  .button-icon:hover {
+}
+
+.button-icon:hover {
     border-color: #ff98a2;
-  }
-  
-  .button-icon:hover .cube {
+}
+
+.button-icon:hover .cube {
     transform: rotateX(90deg);
-  }
-  
-  .side {
+}
+
+.side {
     position: absolute;
     height: 47px;
     width: 200px;
@@ -263,16 +412,89 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: bold;
-  }
-  
-  .top {
+}
+
+.top {
     background: #ff98a2;
     color: #fff;
     transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
-  }
-  
-  .front {
+}
+
+.front {
     background: #222229;
     color: #fff;
     transform: translate3d(0, 0, 1em);
-  }
+}
+
+/* Media Queries */
+
+@media (max-width: 1200px) {
+    .estudios {
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+    }
+    
+    .elementos {
+        font-size: 25px;
+        margin-left: 0;
+    }
+
+    .listarelementos {
+        height: auto;
+    }
+
+    .proyectos {
+        flex-direction: column;
+    }
+
+    .subcont {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .titulos {
+        font-size: 60px;
+    }
+
+    .Habilidades {
+        width: 150px;
+        height: 150px;
+        font-size: 20px;
+    }
+
+    .proyecto {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .conthab h1 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulos {
+        font-size: 40px;
+    }
+
+    .sobremi {
+        font-size: 16px;
+    }
+
+    .Habilidades {
+        width: 100px;
+        height: 100px;
+        font-size: 16px;
+    }
+
+    .proyecto {
+        width: 150px;
+        height: 150px;
+        font-size: 16px;
+    }
+    
+    .conthab h1 {
+        font-size: 14px;
+    }
+}
