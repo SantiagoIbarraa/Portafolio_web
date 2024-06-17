@@ -15,3 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const contactToggle = document.getElementById('contactToggle');
+    const contactDetails = document.getElementById('contactDetails');
+    
+    contactToggle.addEventListener('click', () => {
+        contactDetails.classList.toggle('show');
+    });
+
+    // Cerrar el desplegable al hacer clic fuera de él
+    document.addEventListener('click', (event) => {
+        if (!contactToggle.contains(event.target) && !contactDetails.contains(event.target)) {
+            contactDetails.classList.remove('show');
+        }
+    });
+});
+

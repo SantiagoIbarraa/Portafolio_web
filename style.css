@@ -1,3 +1,4 @@
+/* Mantén los estilos existentes y agrega estas nuevas reglas */
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -8,64 +9,72 @@
         opacity: 1;
     }
 }
-div a{
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+div a {
     color: white;
 }
+
 header {
-    border: 5px solid white;
     height: 60px;
     color: white;
     display: flex; /* Cambiado de grid a flex */
     position: fixed;
     width: 100%;
     align-items: center;
-    background-color: #000000;
-    justify-content: space-between; /* Para separar las dos columnas */
-    animation: slideDown 1s ease-out; /* Aplica la animación */
+    background-color: #1A2130;
+    justify-content: space-around; 
+    animation: slideDown 1s ease-out; 
+    z-index: 2; 
 }
 
-.containheaderleft, .containheaderrig {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex: 1; /* Hace que cada contenedor ocupe el mismo espacio */
-    height: 60px;
+header.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.holdheaderrig, .holdheaderleft {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgb(255, 255, 255); /* Esto es opcional, según tu estilo */
-    flex: 1; /* Hace que los elementos hijos ocupen todo el espacio disponible */
-    text-align: center; /* Asegura que el texto esté centrado */
+.header-left{
+    margin-left: 20px;
 }
 
-.holdheader {
+.header-left a,
+.contact-toggle {
     position: relative;
-    overflow: hidden;
-    z-index: 1; /* Asegura que el texto esté en frente */
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
-.holdheader::before {
-    content: '';
-    position: absolute;
-    bottom: -100%;
-    left: 0;
+.header-left a:hover::before,
+.contact-toggle:hover::before {
     width: 100%;
-    height: 100%;
-    background-color: rgb(30, 107, 166);
-    transition: bottom 0.3s ease;
-    z-index: -1; /* Asegura que el pseudo-elemento esté detrás */
 }
 
-.holdheader:hover::before {
+.header-left a:hover,
+.contact-toggle:hover {
+    color: #f1d03f;
+}
+
+.header-left a::before,
+.contact-toggle::before {
+    content: "";
+    position: absolute;
     bottom: 0;
-}
-
-.holdheader:hover {
-    color: black; /* Cambia el color del texto al hacer hover */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f1d03f;
+    transition: width 0.3s ease-in-out;
 }
 
 .titulo {
@@ -76,10 +85,12 @@ header {
 
 * {
     font-family: "Poppins", sans-serif;
+    text-decoration: none;
 }
 
 .yo {
     color: #ffffff;
+    text-align: center;
 }
 
 #fotoperfil {
@@ -97,6 +108,7 @@ body {
 #textsobremi {
     color: #ffffff;
     font-size: 30px;
+    text-align: center; /* Centrar el texto */
 }
 
 #pp {
@@ -108,15 +120,20 @@ body {
 }
 
 .content {
-    margin-top: 35px;
+    margin-top: 60px;
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
+.sobremi {
+    flex: 1;
+}
+
 #carrera {
     color: rgb(255, 255, 255);
     font-size: 25px;
+    text-align: center; /* Centrar el texto */
 }
 
 button {
@@ -168,6 +185,7 @@ button:hover::before {
     align-items: center;
     align-content: center;
     justify-content: center;
+    gap: 10px; /* Añadir espacio entre los botones */
 }
 
 .nav-button {
@@ -245,4 +263,132 @@ div a {
 .btn:hover svg {
     transform: scale(0.9);
     fill: #c51d1d;
+}
+
+.containheader {
+    position: relative;
+}
+
+.contact-details {
+    display: none;
+    position: absolute;
+    align-items: center;
+    top: 60px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.contact-details.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.contact-details li {
+    margin: 5px 0;
+    text-decoration: none;
+
+}
+
+.contact-details a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: none;
+    color: #5A72A0;
+}
+
+/* Media Queries para hacer la página responsiva */
+@media (max-width: 1200px) {
+    .titulo {
+        font-size: 40px;
+    }
+
+    #textsobremi {
+        font-size: 25px;
+    }
+
+    #fotoperfil {
+        width: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #boton button {
+        width: 80%;
+    }
+
+    #boton1 {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 35px;
+    }
+
+    #textsobremi {
+        font-size: 22px;
+    }
+
+    #fotoperfil {
+        width: 150px;
+    }
+
+    button {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra la imagen */
+    }
+
+    .titulo {
+        font-size: 30px;
+    }
+
+    #textsobremi {
+        font-size: 20px;
+        width: 300px;
+        text-align: center; /* Centra el texto */
+    }
+
+    #fotoperfil {
+        width: 120px;
+        margin: 0 auto; /* Centra la imagen */
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #boton1 {
+        width: 100%;
+    }
+
+    .btn {
+        display: block;
+        width: 10px; /* Reducir el tamaño del ícono de Github */
+        height: 70px;
+        border-radius:60%;
+    }
 }

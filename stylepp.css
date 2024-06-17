@@ -1,12 +1,14 @@
 body {
     background: linear-gradient(90deg, #000000, #171717);
-    padding-top: 60px; /* Ajuste para hacer espacio para el header fijo */
+    padding-top: 60px; 
 }
 
 * {
     color: white;
     font-family: "Poppins", sans-serif;
     opacity: 1;
+    text-decoration: none;
+
 }
 
 .customCheckBoxHolder {
@@ -115,18 +117,20 @@ body {
 }
 
 header {
-    border: 5px solid white;
     height: 60px;
     color: white;
     display: flex;
     position: fixed;
     top: 0;
     left: 0;
+    
     width: 100%;
     align-items: center;
-    background-color: #000000;
+    background-color: #1A2130;
     justify-content: space-between;
-    z-index: 1000; /* Para asegurarse de que el header esté por encima del contenido */
+    justify-content: space-around; /* Para separar las dos columnas */
+    animation: slideDown 1s ease-out; /* Aplica la animación */
+    z-index: 2; /* Asegura que el header esté por delante del contenido */
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 1s ease-out, opacity 1s ease-out;
@@ -137,30 +141,126 @@ header.visible {
     opacity: 1;
 }
 
+.header-left{
+    margin-left: 20px;
+}
+
+.header-left a,
+.contact-toggle {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.header-left a:hover::before,
+.contact-toggle:hover::before {
+    width: 100%;
+}
+
+.header-left a:hover,
+.contact-toggle:hover {
+    color: #f1d03f;
+}
+
+.header-left a::before,
+.contact-toggle::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f1d03f;
+    transition: width 0.3s ease-in-out;
+}
+
+
 /* El resto del CSS sigue igual */
 
-.containheaderleft, .containheaderrig {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex: 1;
-    height: 60px;
+.containheader {
+    position: relative;
 }
 
-.holdheaderrig, .holdheaderleft {
-    height: 60px;
-    display: flex;
+.contact-details {
+    display: none;
+    position: absolute;
     align-items: center;
-    justify-content: center;
-    border: 2px solid rgb(255, 255, 255);
-    flex: 1;
-    text-align: center;
+    top: 60px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    text-decoration: none;
+
 }
+
+.contact-details.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+    text-decoration: none;
+
+}
+
+.contact-details li {
+    margin: 5px 0;
+    text-decoration: none;
+
+}
+
+.contact-details a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: none;
+    color: #5A72A0;
+}
+
 
 .holdheader {
     position: relative;
     overflow: hidden;
     z-index: 1;
+}
+
+
+.habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.habilidad {
+    flex: 1 1 calc(50% - 10px); /* Cada habilidad ocupa el 50% del ancho menos 10px */
+    box-sizing: border-box;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px; /* Espacio entre filas */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alineación del contenido */
+    font-size: 20px;
+}
+.habilidad img {
+    width: 100px;
+    height:100px;
+    display: block;
+    margin: 10px auto  ; /* Centrar la imagen y añadir espacio inferior */
+}
+.habilidad h3 {
+    text-align: center;
+}
+.habilidad p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
 }
 
 .holdheader::before {
@@ -180,7 +280,7 @@ header.visible {
 }
 
 .holdheader:hover {
-    color: black;
+    color: white;
 }
 
 .centrado {
@@ -209,7 +309,8 @@ header.visible {
     height: auto;
     margin-top: 5px;
     border: 5px solid white;
-    border-radius: 10%;
+    border-radius:  10%;
+    background-size: cover;
     box-sizing: border-box;
     margin-right: 5px;
 }
@@ -242,23 +343,11 @@ header.visible {
     flex-wrap: wrap;
     width: 100%;
 }
-
-.Habilidades {
-    color: black;
-    background-color: white;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    font-size: 30px;
-    border: 5px solid black;
-    border-radius: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+.progress-bar {
+    margin: 10px auto 0; /* Margen superior y centrado horizontal */
+    width: 80%; /* Ancho deseado */
 }
+
 
 .proyecto {
     color: black;
@@ -313,11 +402,12 @@ header.visible {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 auto;
-    max-width: 560px;
-    gap: 100px;
+    max-width: 800px; /* Ajusta este valor según el diseño general */
+    gap: 20px; /* Espacio entre los elementos */
 }
 
 .conthab div {
+    flex: 1 1 calc(50% - 20px); /* 50% del ancho menos el espacio entre elementos */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -330,36 +420,11 @@ header.visible {
     font-size: 18px;
 }
 
+
 .titulos {
-    font-size: 60px;
+    font-size: 40px;
     color: #f1d03f;
-}
-
-#habhtml {
-    background-image: url(IMG/HTML.png);
-}
-
-#habcss {
-    background-image: url(IMG/CSS.png);
-}
-
-#habbd {
-    background-image: url(IMG/mysql.png);
-}
-
-#habphp {
-    background-image: url(IMG/PHP.png);
-}
-
-#habpython {
-    background-image: url(IMG/python.png);
-}
-
-#habcpp {
-    background-image: url(IMG/CPP.png);
-}
-#haboff{
-    background-image: url(IMG/office.png);
+    margin-top: 100px;
 }
 
 .sobremi {
@@ -380,6 +445,11 @@ header.visible {
     background-color: #fff;
     padding: 10px 10px 5px 10px;
 }
+.seccion-habilidades {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
 
 .icon svg {
     width: 25px;
@@ -450,47 +520,55 @@ header.visible {
     .subcont {
         margin: 10px 0;
     }
+    .habilidades{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }
-
 @media (max-width: 768px) {
-    .titulos {
-        font-size: 60px;
+    .colegios {
+        flex-direction: column;
     }
 
-    .Habilidades {
-        width: 150px;
-        height: 150px;
+    .image-container {
+        width: 100%;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .subcont {
+        width: 100%;
+    }
+    .habilidades{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .contact-details{
+        padding: 30px;
         font-size: 20px;
     }
-
-    .proyecto {
-        width: 200px;
-        height: 200px;
+    .sobremi{
+        font-size: 13px;
+        
     }
-    
-    .conthab h1 {
-        font-size: 16px;
+    .titulos{
+        font-size: 50px;
+    }
+    .habilidades{
+        font-size: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .titulos {
-        font-size: 40px;
-    }
-
-    .sobremi {
-        font-size: 16px;
+    .conthab div {
+        flex: 1 1 100%; 
     }
 
     .Habilidades {
         width: 100px;
         height: 100px;
-        font-size: 16px;
-    }
-
-    .proyecto {
-        width: 150px;
-        height: 150px;
         font-size: 16px;
     }
     
