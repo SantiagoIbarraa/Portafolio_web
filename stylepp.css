@@ -247,6 +247,8 @@ header.visible {
     flex-direction: column;
     justify-content: space-between; /* Alineación del contenido */
     font-size: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.412);
+    margin: 2px;;
 }
 .habilidad img {
     width: 100px;
