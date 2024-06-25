@@ -236,6 +236,12 @@ header.visible {
     justify-content: space-between;
 }
 
+.habilidades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .habilidad {
     flex: 1 1 calc(50% - 10px); /* Cada habilidad ocupa el 50% del ancho menos 10px */
     box-sizing: border-box;
@@ -248,22 +254,36 @@ header.visible {
     justify-content: space-between; /* Alineación del contenido */
     font-size: 20px;
     border: 2px solid rgba(255, 255, 255, 0.412);
-    margin: 2px;;
+    margin: 2px;
+    transition: transform 0.3s ease-in-out; /* Transición para la animación */
 }
+
 .habilidad img {
     width: 100px;
-    height:100px;
+    height: 100px;
     display: block;
-    margin: 10px auto  ; /* Centrar la imagen y añadir espacio inferior */
+    margin: 10px auto; /* Centrar la imagen y añadir espacio inferior */
 }
+
 .habilidad h3 {
     text-align: center;
 }
+
 .habilidad p {
     margin: 0;
     font-size: 16px;
     color: #333;
 }
+
+.habilidades:hover .habilidad:not(:hover) {
+    transform: scale(0.9); /* Achica los divs no seleccionados */
+}
+
+.habilidad:hover {
+    transform: scale(1.1); /* Agranda el div seleccionado al 110% de su tamaño original */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregar sombra para más efecto */
+}
+
 
 .holdheader::before {
     content: '';
@@ -540,7 +560,8 @@ header.visible {
     }
 
     .cont {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .subcont {

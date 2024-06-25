@@ -22,7 +22,9 @@
 div a {
     color: white;
 }
-
+.descimg{
+    margin-top: -20px;
+}
 header {
     height: 60px;
     color: white;
